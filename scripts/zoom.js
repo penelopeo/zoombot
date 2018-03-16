@@ -116,21 +116,24 @@ module.exports = function(robot) {
         room = res.match[2]
         if (cmd == "start"){
             res.send("starting " + room);
-        getRoomId(room).then(function(roomId){
-            join(roomId);
-        });
+            getRoomId(room).then(function(roomId){
+                join(roomId);
+            });
         }
         if (cmd == "end"){
             res.send("stopping "+ room);
-        getRoomId(room).then(function(roomId){
-            end(roomId);
-        });
+            getRoomId(room).then(function(roomId){
+                end(roomId);
+            });
         }
         if (cmd == "reboot"){
             res.send("restarting the machine for room " + room);
             getRoomId(room).then(function(roomId){
                 restart(roomId);
             });
+        }
+        else {
+            res.send("Try Again");
         }
     });
 }
