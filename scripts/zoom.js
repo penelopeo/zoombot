@@ -120,13 +120,13 @@ module.exports = function(robot) {
                 join(roomId);
             });
         }
-        if (cmd == "end"){
+        else if (cmd == "end"){
             res.send("stopping "+ room);
             getRoomId(room).then(function(roomId){
                 end(roomId);
             });
         }
-        if (cmd == "reboot"){
+        else if (cmd == "reboot"){
             res.send("restarting the machine for room " + room);
             getRoomId(room).then(function(roomId){
                 restart(roomId);
